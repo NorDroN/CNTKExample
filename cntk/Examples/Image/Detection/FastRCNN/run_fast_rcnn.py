@@ -19,7 +19,8 @@ def get_configuration():
     from utils.configs.AlexNet_config import cfg as network_cfg
     # for Pascal VOC 2007 data set use: from utils.configs.Pascal_config import cfg as dataset_cfg
     # for the Grocery data set use:     from utils.configs.Grocery_config import cfg as dataset_cfg
-    from utils.configs.Grocery_config import cfg as dataset_cfg
+    # from utils.configs.Grocery_config import cfg as dataset_cfg
+    from utils.configs.MyDataset_config import cfg as dataset_cfg
 
     return merge_configs([detector_cfg, network_cfg, dataset_cfg])
 

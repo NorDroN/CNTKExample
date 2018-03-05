@@ -20,7 +20,8 @@ def get_configuration():
     from utils.configs.AlexNet_config import cfg as network_cfg
     # for Pascal VOC 2007 data set use: from utils.configs.Pascal_config import cfg as dataset_cfg
     # for the Grocery data set use:     from utils.configs.Grocery_config import cfg as dataset_cfg
-    from utils.configs.Grocery_config import cfg as dataset_cfg
+    # from utils.configs.Grocery_config import cfg as dataset_cfg
+    from utils.configs.MyDataset_config import cfg as dataset_cfg
 
     return merge_configs([detector_cfg, network_cfg, dataset_cfg])
 
@@ -28,7 +29,8 @@ def get_configuration():
 if __name__ == '__main__':
     cfg = get_configuration()
     prepare(cfg, False)
-    cntk.device.try_set_default_device(cntk.device.gpu(cfg.GPU_ID))
+    # cntk.device.try_set_default_device(cntk.device.gpu(cfg.GPU_ID))
+    cntk.device.try_set_default_device(cntk.device.cpu())
 
     # train and test
     trained_model = train_faster_rcnn(cfg)
